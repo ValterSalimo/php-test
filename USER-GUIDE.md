@@ -182,6 +182,9 @@ docker-compose exec php php /server/http/init-db.php
 
    # Stage all changes
    git add .
+   
+   # Note: Running just 'git add' without specifying files or using '.'
+   # will result in an error: "Nothing specified, nothing added."
    ```
 
 3. Commit your changes:
@@ -193,6 +196,24 @@ docker-compose exec php php /server/http/init-db.php
    ```bash
    git push origin main
    ```
+
+### Common Git Errors and Solutions
+
+1. **"Nothing specified, nothing added"**
+   - Error: `git add` was run without specifying any files
+   - Solution: Use `git add .` to add all changed files, or specify file paths
+
+2. **"Your branch is ahead of 'origin/main' by X commits"**
+   - Situation: You have local commits that haven't been pushed
+   - Solution: Run `git push origin main` to push your changes
+
+3. **"Failed to push some refs"**
+   - Situation: Remote repository has changes you don't have locally
+   - Solution: Run `git pull` first, resolve any conflicts, then push
+
+4. **"Changes not staged for commit"**
+   - Situation: You have modified files but haven't used `git add` yet
+   - Solution: Run `git add .` or `git add <filename>` before committing
 
 ### Working with Branches
 
