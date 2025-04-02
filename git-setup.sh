@@ -28,7 +28,7 @@ git add .
 
 # Create initial commit
 echo "Creating initial commit..."
-git commit -m "Initial commit: PHP Recipe API"
+git commit -m "final changes to the version 1: PHP Recipe API"
 
 echo "Git repository initialized successfully!"
 echo ""
