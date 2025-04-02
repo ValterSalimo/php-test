@@ -1,0 +1,57 @@
+services:
+
+    # Application container
+    php:
+        build: .
+        restart: unless-stopped
+        volumes:
+            - ./:/server/http
+            # Ensure vendor directory is not overwritten
+            - /server/http/vendor
+        ports:
+            - "8080:80"
+            #- "443:443"
+        depends_on:
+            - postgres
+        links:
+            - postgres
+            - redis
+        environment:
+            DEBUG: 'true'
+            DB_HOST: postgres
+            DB_PORT: 5432
+            DB_NAME: hellofresh
+            DB_USER: postgres
+            DB_PASSWORD: valter123
+            JWT_SECRET: recipe-api-secure-secret-key
+
+    postgres:
+        image: onjin/alpine-postgres:9.5
+        restart: unless-stopped
+        ports:
+            - "5432:5432"
+        environment:
+            LC_ALL: C.UTF-8
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: valter123
+            POSTGRES_DB: hellofresh
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        # Add a healthcheck to ensure the database is ready before the PHP container
+        healthcheck:
+            test: ["CMD", "pg_isready", "-U", "postgres"]
+            interval: 5s
+            timeout: 5s
+            retries: 5
+
+    redis:
+        image: sickp/alpine-redis:3.2.2
+        restart: unless-stopped
+        ports:
+            - "6379:6379"
+
+# Define named volumes for persistence
+volumes:
+    postgres_data:
+        driver: local
+
