@@ -21,6 +21,35 @@ This is a RESTful API for managing recipes, built with PHP 7.4 without using any
 5. The API will be available at http://localhost:8080
 6. Access the Swagger UI documentation at http://localhost:8080/swagger
 
+## Project Structure
+
+```
+php-test/
+├── config/                # Configuration files
+├── src/                   # Source code
+│   ├── Controller/        # Request handlers
+│   ├── Core/              # Core framework components
+│   ├── Exception/         # Custom exceptions
+│   ├── Middleware/        # Request/response middleware
+│   ├── Model/             # Domain models
+│   ├── Repository/        # Data access layer
+│   └── Service/           # Business logic
+├── tests/                 # Test files
+│   ├── Integration/       # Integration tests
+│   └── Unit/              # Unit tests
+├── vendor/                # Dependencies (managed by Composer)
+├── web/                   # Public web files
+│   ├── ui/                # Frontend UI files
+│   ├── index.php          # Application entry point
+│   └── swagger.json       # API documentation
+├── docker-compose.yml     # Docker configuration
+├── phpunit.xml            # Testing configuration
+├── run-tests.sh           # Test execution script
+├── git-setup.sh           # Git initialization script
+├── init-db.php            # Database initialization script
+└── USER-GUIDE.md          # User documentation
+```
+
 ## Data Persistence
 
 The application uses a Docker volume (`postgres_data`) to ensure that all database data is persisted across container restarts and even across container recreation. This means:
@@ -99,13 +128,60 @@ CREATE TABLE users (
 - CORS headers for API security
 - Validation of request data
 
-### Testing
+## User Interface
+
+The application includes a simple web-based UI for interacting with the API:
+
+- **Available at**: http://localhost:8080/ui
+- **Features**:
+  - User registration and login
+  - Listing all recipes
+  - Creating new recipes
+  - Editing existing recipes
+  - Deleting recipes
+  - Rating recipes
+  - Searching for recipes with filters
+
+The UI is built with vanilla JavaScript and communicates with the API endpoints.
+
+## Testing
 
 To run the tests, execute the following command:
 
 ```bash
+# Using the provided script
+chmod +x run-tests.sh
+./run-tests.sh
+
+# Or run directly with PHPUnit
 docker-compose exec php vendor/bin/phpunit
 ```
+
+The testing suite includes:
+- Unit tests for models and core functionality
+- Integration tests for API endpoints
+- Test configuration in phpunit.xml
+- Separate test database to prevent affecting production data
+
+### Example Test Files
+
+- `tests/Unit/Model/RecipeTest.php`: Tests recipe creation, validation, and behavior
+- Additional tests for controllers, repositories, and services
+
+## Development Workflow
+
+1. Make sure Docker Desktop is running
+2. Start the application with `docker-compose up -d`
+3. Initialize the database with test data
+4. Make changes to the code
+5. Run tests to ensure functionality
+6. Use Git for version control (script provided: `git-setup.sh`)
+
+## Documentation
+
+- **API Documentation**: Available via Swagger UI at http://localhost:8080/swagger
+- **User Guide**: See USER-GUIDE.md for detailed instructions on using the API
+- **Code Documentation**: PHP DocBlocks throughout the codebase
 
 ## Performance Considerations
 
@@ -113,3 +189,15 @@ docker-compose exec php vendor/bin/phpunit
 - Indexing on frequently queried fields
 - Pagination for list endpoints to reduce response size
 - Caching opportunities (could be implemented with Redis)
+
+## Future Improvements
+
+Potential enhancements for the project:
+
+1. Add ingredient lists and cooking instructions to recipes
+2. Implement user favorites and collections
+3. Add image upload functionality for recipes
+4. Create a more sophisticated permission system
+5. Implement caching with Redis for improved performance
+6. Add CI/CD pipeline for automated testing and deployment
+7. Enhance search functionality with full-text search
