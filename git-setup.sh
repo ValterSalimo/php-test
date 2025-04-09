@@ -35,10 +35,6 @@ echo ""
 echo "To connect to GitHub, follow these steps:"
 echo "1. Create a new repository on GitHub (do NOT initialize with README)"
 echo "2. Run the following commands:"
-<<<<<<< HEAD
-echo "   git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git"
-=======
-echo "   git remote add origin https://github.com/ValterSalimo/.git"
->>>>>>> 90530cd (Initial commit: PHP Recipe API)
+echo "   git remote add origin https://github.com/ValterSalimo/php-test.git"
 echo "   git branch -M main"
 echo "   git push -u origin main"
