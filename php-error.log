@@ -1,0 +1,271 @@
+[01-Apr-2025 21:42:13 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 21:42:13 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 21:42:13 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /server/http/config/services.php:20) in /server/http/src/Core/Response.php on line 30
+[01-Apr-2025 21:42:13 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 21:42:13 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 21:42:13 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /server/http/config/services.php:20) in /server/http/src/Core/Response.php on line 30
+[01-Apr-2025 21:42:24 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 21:42:24 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 21:42:24 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /server/http/config/services.php:20) in /server/http/src/Core/Response.php on line 30
+[01-Apr-2025 21:42:24 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 21:42:24 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 21:42:24 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /server/http/config/services.php:20) in /server/http/src/Core/Response.php on line 30
+[01-Apr-2025 21:42:26 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 21:42:26 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 21:42:26 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /server/http/config/services.php:20) in /server/http/src/Core/Response.php on line 30
+[01-Apr-2025 21:42:26 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 21:42:26 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 21:42:26 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /server/http/config/services.php:20) in /server/http/src/Core/Response.php on line 30
+[01-Apr-2025 21:43:21 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 21:43:22 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 21:43:22 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /server/http/config/services.php:20) in /server/http/src/Core/Response.php on line 30
+[01-Apr-2025 21:43:27 UTC] Incoming request: {"method":"GET","path":"\/","params":[],"body":null}
+[01-Apr-2025 21:43:27 UTC] Response status: {"path":"\/","status":200}
+[01-Apr-2025 21:43:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /server/http/config/services.php:20) in /server/http/src/Core/Response.php on line 30
+[01-Apr-2025 21:43:27 UTC] Incoming request: {"method":"GET","path":"\/","params":[],"body":null}
+[01-Apr-2025 21:43:27 UTC] Response status: {"path":"\/","status":200}
+[01-Apr-2025 21:43:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /server/http/config/services.php:20) in /server/http/src/Core/Response.php on line 30
+[01-Apr-2025 21:45:06 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:45:06 UTC] Database tables created successfully.
+[01-Apr-2025 21:45:06 UTC] Database connection successful
+[01-Apr-2025 21:45:06 UTC] Database tables created successfully.
+[01-Apr-2025 21:45:06 UTC] Incoming request: {"method":"GET","path":"\/","params":[],"body":null}
+[01-Apr-2025 21:45:06 UTC] Response status: {"path":"\/","status":200}
+[01-Apr-2025 21:45:07 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:45:07 UTC] Database tables created successfully.
+[01-Apr-2025 21:45:07 UTC] Database connection successful
+[01-Apr-2025 21:45:07 UTC] Database tables created successfully.
+[01-Apr-2025 21:45:07 UTC] Incoming request: {"method":"GET","path":"\/","params":[],"body":null}
+[01-Apr-2025 21:45:07 UTC] Response status: {"path":"\/","status":200}
+[01-Apr-2025 21:45:13 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:45:14 UTC] Database tables created successfully.
+[01-Apr-2025 21:45:14 UTC] Database connection successful
+[01-Apr-2025 21:45:14 UTC] Database tables created successfully.
+[01-Apr-2025 21:45:14 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 21:45:14 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 21:45:14 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:45:14 UTC] Database tables created successfully.
+[01-Apr-2025 21:45:14 UTC] Database connection successful
+[01-Apr-2025 21:45:14 UTC] Database tables created successfully.
+[01-Apr-2025 21:45:14 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 21:45:15 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 21:45:44 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:45:44 UTC] Database tables created successfully.
+[01-Apr-2025 21:45:44 UTC] Database connection successful
+[01-Apr-2025 21:45:44 UTC] Database tables created successfully.
+[01-Apr-2025 21:45:44 UTC] Incoming request: {"method":"POST","path":"\/auth\/login","params":[],"body":{"username":"valter","password":"valter123"}}
+[01-Apr-2025 21:45:44 UTC] Response status: {"path":"\/auth\/login","status":401}
+[01-Apr-2025 21:45:57 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:45:58 UTC] Database tables created successfully.
+[01-Apr-2025 21:45:58 UTC] Database connection successful
+[01-Apr-2025 21:45:58 UTC] Database tables created successfully.
+[01-Apr-2025 21:45:58 UTC] Incoming request: {"method":"POST","path":"\/auth\/login","params":[],"body":{"username":"valter","password":"valter1233"}}
+[01-Apr-2025 21:45:58 UTC] Response status: {"path":"\/auth\/login","status":401}
+[01-Apr-2025 21:46:39 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:46:40 UTC] Database tables created successfully.
+[01-Apr-2025 21:46:40 UTC] Database connection successful
+[01-Apr-2025 21:46:40 UTC] Database tables created successfully.
+[01-Apr-2025 21:46:40 UTC] Incoming request: {"method":"POST","path":"\/recipes","params":[],"body":{"name":"Pasta","prepTime":50,"difficulty":3,"vegetarian":true}}
+[01-Apr-2025 21:46:40 UTC] Recipe inserted with ID: 1
+[01-Apr-2025 21:46:40 UTC] Response status: {"path":"\/recipes","status":201}
+[01-Apr-2025 21:47:25 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:47:25 UTC] Database tables created successfully.
+[01-Apr-2025 21:47:25 UTC] Database connection successful
+[01-Apr-2025 21:47:25 UTC] Database tables created successfully.
+[01-Apr-2025 21:47:25 UTC] Incoming request: {"method":"POST","path":"\/recipes","params":[],"body":{"name":"Sushi","prepTime":20,"difficulty":4,"vegetarian":false}}
+[01-Apr-2025 21:47:25 UTC] Response status: {"path":"\/recipes","status":400}
+[01-Apr-2025 21:47:38 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:47:38 UTC] Database tables created successfully.
+[01-Apr-2025 21:47:38 UTC] Database connection successful
+[01-Apr-2025 21:47:38 UTC] Database tables created successfully.
+[01-Apr-2025 21:47:38 UTC] Incoming request: {"method":"POST","path":"\/recipes","params":[],"body":{"name":"Sushi","prepTime":20,"difficulty":2,"vegetarian":false}}
+[01-Apr-2025 21:47:38 UTC] Error inserting recipe: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type boolean: ""
+[01-Apr-2025 21:47:38 UTC] Response status: {"path":"\/recipes","status":400}
+[01-Apr-2025 21:48:03 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:48:03 UTC] Database tables created successfully.
+[01-Apr-2025 21:48:03 UTC] Database connection successful
+[01-Apr-2025 21:48:03 UTC] Database tables created successfully.
+[01-Apr-2025 21:48:03 UTC] Incoming request: {"method":"POST","path":"\/recipes","params":[],"body":{"name":"Sushi","prepTime":20,"difficulty":2,"vegetarian":true}}
+[01-Apr-2025 21:48:03 UTC] Recipe inserted with ID: 2
+[01-Apr-2025 21:48:03 UTC] Response status: {"path":"\/recipes","status":201}
+[01-Apr-2025 21:48:51 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:48:51 UTC] Database tables created successfully.
+[01-Apr-2025 21:48:51 UTC] Database connection successful
+[01-Apr-2025 21:48:51 UTC] Database tables created successfully.
+[01-Apr-2025 21:48:51 UTC] Incoming request: {"method":"GET","path":"\/recipes","params":{"page":"1","limit":"10"},"body":null}
+[01-Apr-2025 21:48:51 UTC] Response status: {"path":"\/recipes","status":200}
+[01-Apr-2025 21:55:54 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:55:54 UTC] Database connection successful
+[01-Apr-2025 21:55:54 UTC] Checking if tables exist...
+[01-Apr-2025 21:55:54 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 21:55:54 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 21:55:54 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 21:55:55 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:55:55 UTC] Database connection successful
+[01-Apr-2025 21:55:55 UTC] Checking if tables exist...
+[01-Apr-2025 21:55:55 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 21:55:55 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 21:55:55 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 21:57:26 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:57:26 UTC] Database connection successful
+[01-Apr-2025 21:57:26 UTC] Checking if tables exist...
+[01-Apr-2025 21:57:26 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 21:57:26 UTC] Incoming request: {"method":"GET","path":"\/","params":[],"body":null}
+[01-Apr-2025 21:57:26 UTC] Response status: {"path":"\/","status":200}
+[01-Apr-2025 21:57:26 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:57:26 UTC] Database connection successful
+[01-Apr-2025 21:57:26 UTC] Checking if tables exist...
+[01-Apr-2025 21:57:26 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 21:57:26 UTC] Incoming request: {"method":"GET","path":"\/","params":[],"body":null}
+[01-Apr-2025 21:57:26 UTC] Response status: {"path":"\/","status":200}
+[01-Apr-2025 21:57:32 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:57:32 UTC] Database connection successful
+[01-Apr-2025 21:57:32 UTC] Checking if tables exist...
+[01-Apr-2025 21:57:32 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 21:57:32 UTC] Incoming request: {"method":"GET","path":"\/","params":[],"body":null}
+[01-Apr-2025 21:57:32 UTC] Response status: {"path":"\/","status":200}
+[01-Apr-2025 21:57:32 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:57:33 UTC] Database connection successful
+[01-Apr-2025 21:57:33 UTC] Checking if tables exist...
+[01-Apr-2025 21:57:33 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 21:57:33 UTC] Incoming request: {"method":"GET","path":"\/","params":[],"body":null}
+[01-Apr-2025 21:57:33 UTC] Response status: {"path":"\/","status":200}
+[01-Apr-2025 21:57:35 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:57:35 UTC] Database connection successful
+[01-Apr-2025 21:57:35 UTC] Checking if tables exist...
+[01-Apr-2025 21:57:35 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 21:57:35 UTC] Incoming request: {"method":"GET","path":"\/","params":[],"body":null}
+[01-Apr-2025 21:57:35 UTC] Response status: {"path":"\/","status":200}
+[01-Apr-2025 21:57:35 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:57:35 UTC] Database connection successful
+[01-Apr-2025 21:57:35 UTC] Checking if tables exist...
+[01-Apr-2025 21:57:35 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 21:57:35 UTC] Incoming request: {"method":"GET","path":"\/","params":[],"body":null}
+[01-Apr-2025 21:57:35 UTC] Response status: {"path":"\/","status":200}
+[01-Apr-2025 21:57:51 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:57:51 UTC] Database connection successful
+[01-Apr-2025 21:57:51 UTC] Checking if tables exist...
+[01-Apr-2025 21:57:51 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 21:57:51 UTC] Incoming request: {"method":"GET","path":"\/recipes","params":[],"body":null}
+[01-Apr-2025 21:57:51 UTC] Response status: {"path":"\/recipes","status":200}
+[01-Apr-2025 21:57:51 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 21:57:51 UTC] Database connection successful
+[01-Apr-2025 21:57:51 UTC] Checking if tables exist...
+[01-Apr-2025 21:57:51 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 21:57:51 UTC] Incoming request: {"method":"GET","path":"\/recipes","params":[],"body":null}
+[01-Apr-2025 21:57:51 UTC] Response status: {"path":"\/recipes","status":200}
+[01-Apr-2025 22:03:15 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:03:15 UTC] Database connection successful
+[01-Apr-2025 22:03:15 UTC] Checking if tables exist...
+[01-Apr-2025 22:03:15 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:03:15 UTC] Incoming request: {"method":"GET","path":"\/recipes","params":[],"body":null}
+[01-Apr-2025 22:03:15 UTC] Response status: {"path":"\/recipes","status":200}
+[01-Apr-2025 22:03:15 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:03:15 UTC] Database connection successful
+[01-Apr-2025 22:03:15 UTC] Checking if tables exist...
+[01-Apr-2025 22:03:15 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:03:15 UTC] Incoming request: {"method":"GET","path":"\/recipes","params":[],"body":null}
+[01-Apr-2025 22:03:15 UTC] Response status: {"path":"\/recipes","status":200}
+[01-Apr-2025 22:03:38 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:03:38 UTC] Database connection successful
+[01-Apr-2025 22:03:38 UTC] Checking if tables exist...
+[01-Apr-2025 22:03:38 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:03:38 UTC] Incoming request: {"method":"POST","path":"\/recipes","params":[],"body":{"name":"Pasta","prepTime":50,"difficulty":3,"vegetarian":true}}
+[01-Apr-2025 22:03:38 UTC] Response status: {"path":"\/recipes","status":401}
+[01-Apr-2025 22:04:15 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:04:15 UTC] Database connection successful
+[01-Apr-2025 22:04:15 UTC] Checking if tables exist...
+[01-Apr-2025 22:04:15 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:04:15 UTC] Incoming request: {"method":"POST","path":"\/auth\/login","params":[],"body":{"username":"valter","password":"valter123"}}
+[01-Apr-2025 22:04:15 UTC] Response status: {"path":"\/auth\/login","status":401}
+[01-Apr-2025 22:04:31 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:04:31 UTC] Database connection successful
+[01-Apr-2025 22:04:31 UTC] Checking if tables exist...
+[01-Apr-2025 22:04:31 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:04:31 UTC] Incoming request: {"method":"POST","path":"\/auth\/register","params":[],"body":{"username":"string","password":"string"}}
+[01-Apr-2025 22:04:31 UTC] Response status: {"path":"\/auth\/register","status":201}
+[01-Apr-2025 22:04:44 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:04:44 UTC] Database connection successful
+[01-Apr-2025 22:04:44 UTC] Checking if tables exist...
+[01-Apr-2025 22:04:44 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:04:44 UTC] Incoming request: {"method":"POST","path":"\/auth\/register","params":[],"body":{"username":"valter","password":"valter123"}}
+[01-Apr-2025 22:04:44 UTC] Response status: {"path":"\/auth\/register","status":201}
+[01-Apr-2025 22:07:13 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:07:13 UTC] Database connection successful
+[01-Apr-2025 22:07:13 UTC] Checking if tables exist...
+[01-Apr-2025 22:07:13 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:07:13 UTC] Incoming request: {"method":"POST","path":"\/auth\/login","params":[],"body":{"username":"valter","password":"valter123"}}
+[01-Apr-2025 22:07:13 UTC] Response status: {"path":"\/auth\/login","status":200}
+[01-Apr-2025 22:07:40 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:07:40 UTC] Database connection successful
+[01-Apr-2025 22:07:40 UTC] Checking if tables exist...
+[01-Apr-2025 22:07:40 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:07:40 UTC] Incoming request: {"method":"POST","path":"\/recipes","params":[],"body":{"name":"Pasta","prepTime":50,"difficulty":3,"vegetarian":true}}
+[01-Apr-2025 22:07:40 UTC] Recipe inserted with ID: 4
+[01-Apr-2025 22:07:40 UTC] Response status: {"path":"\/recipes","status":201}
+[01-Apr-2025 22:07:56 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:07:56 UTC] Database connection successful
+[01-Apr-2025 22:07:56 UTC] Checking if tables exist...
+[01-Apr-2025 22:07:56 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:07:56 UTC] Incoming request: {"method":"GET","path":"\/recipes","params":[],"body":null}
+[01-Apr-2025 22:07:56 UTC] Response status: {"path":"\/recipes","status":200}
+[01-Apr-2025 22:07:56 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:07:56 UTC] Database connection successful
+[01-Apr-2025 22:07:56 UTC] Checking if tables exist...
+[01-Apr-2025 22:07:56 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:07:56 UTC] Incoming request: {"method":"GET","path":"\/recipes","params":[],"body":null}
+[01-Apr-2025 22:07:56 UTC] Response status: {"path":"\/recipes","status":200}
+[01-Apr-2025 22:18:18 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:18:18 UTC] Database connection successful
+[01-Apr-2025 22:18:18 UTC] Checking if tables exist...
+[01-Apr-2025 22:18:18 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:18:18 UTC] Incoming request: {"method":"GET","path":"\/recipes","params":[],"body":null}
+[01-Apr-2025 22:18:18 UTC] Response status: {"path":"\/recipes","status":200}
+[01-Apr-2025 22:19:20 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:19:20 UTC] Database connection successful
+[01-Apr-2025 22:19:20 UTC] Checking if tables exist...
+[01-Apr-2025 22:19:20 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:19:20 UTC] Incoming request: {"method":"GET","path":"\/recipes","params":[],"body":null}
+[01-Apr-2025 22:19:20 UTC] Response status: {"path":"\/recipes","status":200}
+[01-Apr-2025 22:22:27 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:22:27 UTC] Database connection successful
+[01-Apr-2025 22:22:27 UTC] Checking if tables exist...
+[01-Apr-2025 22:22:27 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:22:27 UTC] Incoming request: {"method":"POST","path":"\/auth\/register","params":[],"body":null}
+[01-Apr-2025 22:22:27 UTC] Response status: {"path":"\/auth\/register","status":400}
+[01-Apr-2025 22:22:47 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:22:47 UTC] Database connection successful
+[01-Apr-2025 22:22:47 UTC] Checking if tables exist...
+[01-Apr-2025 22:22:47 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:22:47 UTC] Incoming request: {"method":"POST","path":"\/auth\/register","params":[],"body":null}
+[01-Apr-2025 22:22:47 UTC] Response status: {"path":"\/auth\/register","status":400}
+[01-Apr-2025 22:22:52 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:22:53 UTC] Database connection successful
+[01-Apr-2025 22:22:53 UTC] Checking if tables exist...
+[01-Apr-2025 22:22:54 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:22:54 UTC] Incoming request: {"method":"GET","path":"\/recipes","params":[],"body":null}
+[01-Apr-2025 22:22:54 UTC] Response status: {"path":"\/recipes","status":200}
+[01-Apr-2025 22:35:44 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:35:44 UTC] Database connection successful
+[01-Apr-2025 22:35:44 UTC] Checking if tables exist...
+[01-Apr-2025 22:35:44 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:35:44 UTC] Incoming request: {"method":"GET","path":"\/recipes\/search","params":{"q":"spaghetti","vegetarian":"false","difficulty":"2"},"body":null}
+[01-Apr-2025 22:35:44 UTC] Response status: {"path":"\/recipes\/search","status":200}
+[01-Apr-2025 22:35:58 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:35:58 UTC] Database connection successful
+[01-Apr-2025 22:35:58 UTC] Checking if tables exist...
+[01-Apr-2025 22:35:58 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:35:58 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 22:35:58 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 22:35:59 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:35:59 UTC] Database connection successful
+[01-Apr-2025 22:35:59 UTC] Checking if tables exist...
+[01-Apr-2025 22:35:59 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:35:59 UTC] Incoming request: {"method":"GET","path":"\/swagger","params":[],"body":null}
+[01-Apr-2025 22:35:59 UTC] Response status: {"path":"\/swagger","status":200}
+[01-Apr-2025 22:36:15 UTC] Connecting to database at postgres:5432/hellofresh as postgres
+[01-Apr-2025 22:36:15 UTC] Database connection successful
+[01-Apr-2025 22:36:15 UTC] Checking if tables exist...
+[01-Apr-2025 22:36:15 UTC] All tables already exist. Skipping table creation.
+[01-Apr-2025 22:36:15 UTC] Incoming request: {"method":"GET","path":"\/recipes","params":{"page":"1","limit":"10"},"body":null}
+[01-Apr-2025 22:36:15 UTC] Response status: {"path":"\/recipes","status":200}
