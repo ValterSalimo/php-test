@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe API - Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css">
+    <style>
+        html { box-sizing: border-box; overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
+        *, *:before, *:after { box-sizing: inherit; }
+        body { margin: 0; padding: 0; }
+        .topbar { display: none; }
+    </style>
+</head>
+<body>
+    <div id="swagger-ui"></div>
+    <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+    <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-standalone-preset.js"></script>
+    <script>
+        window.onload = function() {
+            const ui = SwaggerUIBundle({
+                url: "/swagger.json",
+                dom_id: '#swagger-ui',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIStandalonePreset
+                ],
+                plugins: [
+                    SwaggerUIBundle.plugins.DownloadUrl
+                ],
+                layout: "BaseLayout",
+                persistAuthorization: true
+            });
+            window.ui = ui;
+            
+            // Check for error parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('error') && urlParams.get('error') === 'not_found') {
+                const path = urlParams.get('path');
+                const errorDiv = document.createElement('div');
+                errorDiv.style.padding = '20px';
+                errorDiv.style.margin = '15px';
+                errorDiv.style.backgroundColor = '#ffdddd';
+                errorDiv.style.border = '1px solid #f77';
+                errorDiv.style.borderRadius = '4px';
+                errorDiv.innerHTML = '<h3>404 - Page Not Found</h3><p>The page <code>' + 
+                    (path || 'requested') + 
+                    '</code> does not exist. Please use the Swagger documentation below to explore available endpoints.</p>';
+                document.querySelector('#swagger-ui').prepend(errorDiv);
+            }
+        };
+    </script>
+</body>
+</html>

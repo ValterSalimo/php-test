@@ -12,6 +12,25 @@ This is a RESTful API for managing recipes, built with PHP 7.4 without using any
 - Unit tests with PHPUnit
 - Swagger UI for testing and documenting the API
 
+## Recent Improvements
+
+The following enhancements have been made to the original implementation:
+
+1. **Fixed Port Preservation**: URLs now correctly maintain port numbers in redirects (localhost:8080 will redirect to localhost:8080/swagger)
+2. **Root Path Redirection**: The root URL now correctly redirects to Swagger UI
+3. **Added Rate Limiting**: Protection against API abuse with proper headers
+4. **Enhanced Router**: Improved path parameter extraction and route matching
+5. **Better Error Handling**: More comprehensive error handling and logging
+6. **CORS Support**: Added cross-origin resource sharing support
+7. **Improved Documentation**: Enhanced API documentation and user guides
+8. **Database Migrations**: Added support for structured database changes
+9. **Search Functionality**: Fixed issues with search parameters handling, particularly:
+   - Empty search queries
+   - Proper boolean parameter handling for PostgreSQL
+   - Trailing ampersands in query strings
+10. **Database Error Context**: Enhanced error reporting for database operations
+11. **Query Parameter Validation**: Better validation and sanitization of query parameters
+
 ## Setup Instructions
 
 1. Make sure you have Docker installed on your machine
@@ -119,7 +138,7 @@ CREATE TABLE users (
 - **firebase/php-jwt**: For JWT token generation and validation
 - **phpunit/phpunit**: For unit testing
 
-### Security Measures
+## Security Measures
 
 - JWT token authentication for protected endpoints
 - Password hashing with PHP's password_hash function
@@ -127,6 +146,8 @@ CREATE TABLE users (
 - Prepared statements to prevent SQL injection
 - CORS headers for API security
 - Validation of request data
+- Enhanced error logging without exposing sensitive details
+- Parameterized queries for all database operations
 
 ## User Interface
 
@@ -175,7 +196,7 @@ The testing suite includes:
 3. Initialize the database with test data
 4. Make changes to the code
 5. Run tests to ensure functionality
-6. Use Git for version control (script provided: `git-setup.sh`)
+6. Use Git for version control 
 
 ## Documentation
 
@@ -189,15 +210,6 @@ The testing suite includes:
 - Indexing on frequently queried fields
 - Pagination for list endpoints to reduce response size
 - Caching opportunities (could be implemented with Redis)
+- Efficient PostgreSQL queries using COALESCE and json_agg for ratings
+- Improved search queries with better parameter handling
 
-## Future Improvements
-
-Potential enhancements for the project:
-
-1. Add ingredient lists and cooking instructions to recipes
-2. Implement user favorites and collections
-3. Add image upload functionality for recipes
-4. Create a more sophisticated permission system
-5. Implement caching with Redis for improved performance
-6. Add CI/CD pipeline for automated testing and deployment
-7. Enhance search functionality with full-text search

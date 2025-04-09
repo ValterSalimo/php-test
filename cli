@@ -1,0 +1,111 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use App\Core\Container;
+use App\Database\MigrationRunner;
+use Dotenv\Dotenv;
+
+// Load environment variables
+if (file_exists(__DIR__ . '/.env')) {
+    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+}
+
+// Create container and register services
+$container = new Container();
+require_once __DIR__ . '/config/services.php';
+
+$args = $argv;
+array_shift($args); // Remove script name
+
+if (empty($args)) {
+    echo "Usage: php cli [command] [options]\n";
+    echo "\n";
+    echo "Available commands:\n";
+    echo "  migrate              Run database migrations\n";
+    echo "  migrate:rollback     Rollback the last migration\n";
+    echo "  db:seed              Seed the database with test data\n";
+    echo "  cache:clear          Clear application cache\n";
+    echo "  test                 Run PHPUnit tests\n";
+    echo "\n";
+    exit(0);
+}
+
+$command = array_shift($args);
+
+switch ($command) {
+    case 'migrate':
+        $migrationRunner = new MigrationRunner(
+            $container->get('database'),
+            $container->get('log.service')
+        );
+        if ($migrationRunner->migrate()) {
+            echo "Migrations completed successfully.\n";
+        } else {
+            echo "Migrations failed. Check the logs for details.\n";
+            exit(1);
+        }
+        break;
+        
+    case 'migrate:rollback':
+        $migrationRunner = new MigrationRunner(
+            $container->get('database'),
+            $container->get('log.service')
+        );
+        if ($migrationRunner->rollback()) {
+            echo "Rollback completed successfully.\n";
+        } else {
+            echo "Rollback failed. Check the logs for details.\n";
+            exit(1);
+        }
+        break;
+        
+    case 'db:seed':
+        echo "Seeding database with test data...\n";
+        include_once __DIR__ . '/init-db.php';
+        echo "Database seeded successfully.\n";
+        break;
+        
+    case 'cache:clear':
+        echo "Clearing application cache...\n";
+        $cacheDir = __DIR__ . '/cache';
+        if (is_dir($cacheDir)) {
+            $files = new \RecursiveIteratorIterator(
+                new \RecursiveDirectoryIterator($cacheDir, \RecursiveDirectoryIterator::SKIP_DOTS),
+                \RecursiveIteratorIterator::CHILD_FIRST
+            );
+            
+            foreach ($files as $file) {
+                if ($file->isDir()) {
+                    rmdir($file->getRealPath());
+                } else {
+                    unlink($file->getRealPath());
+                }
+            }
+            
+            echo "Cache cleared successfully.\n";
+        } else {
+            echo "No cache directory found.\n";
+        }
+        break;
+        
+    case 'test':
+        echo "Running PHPUnit tests...\n";
+        $testSuite = isset($args[0]) ? $args[0] : '';
+        $command = './vendor/bin/phpunit';
+        
+        if ($testSuite) {
+            $command .= ' --testsuite=' . $testSuite;
+        }
+        
+        passthru($command, $exitCode);
+        exit($exitCode);
+        
+    default:
+        echo "Unknown command: $command\n";
+        exit(1);
+}
+
+exit(0);

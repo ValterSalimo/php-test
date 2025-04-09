@@ -81,9 +81,9 @@ try {
     
     // Insert test recipes - Fix the boolean values
     $recipes = [
-        ['Spaghetti Carbonara', 30, 2, 'false'],  // Changed from false to 'false'
-        ['Vegetable Stir Fry', 20, 1, 'true'],    // Changed from true to 'true'
-        ['Beef Wellington', 90, 3, 'false']       // Changed from false to 'false'
+        ['Spaghetti Carbonara', 30, 2, 'false'], 
+        ['Vegetable Stir Fry', 20, 1, 'true'],    
+        ['Beef Wellington', 90, 3, 'false']       
     ];
     
     $stmt = $pdo->prepare("INSERT INTO recipes (name, prep_time, difficulty, vegetarian) VALUES (?, ?, ?, ?::boolean)");
@@ -102,7 +102,7 @@ try {
     }
     
     echo "\nDatabase initialization complete!\n";
-    echo "You can now access the API at http://localhost:8080\n";
+    echo "You can now access the API at http://localhost:8080/ui\n";
     echo "Use Swagger UI at http://localhost:8080/swagger\n";
     
 } catch (PDOException $e) {

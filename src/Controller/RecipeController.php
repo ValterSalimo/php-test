@@ -8,6 +8,8 @@ use App\Model\Recipe;
 use App\Repository\RecipeRepository;
 use App\Service\ValidationService;
 use App\Service\LogService;
+use Exception;
+use App\Exception\DatabaseException;
 
 class RecipeController
 {
@@ -65,11 +67,10 @@ class RecipeController
             $recipe->setPrepTime((int)$data['prepTime']);
             $recipe->setDifficulty((int)$data['difficulty']);
             
-            // Fix vegetarian boolean handling
+            
             if (isset($data['vegetarian'])) {
-                // Convert various vegetarian input types to proper boolean
                 $vegetarian = filter_var($data['vegetarian'], FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-                // If null (invalid), default to false
+             
                 $recipe->setVegetarian($vegetarian !== null ? $vegetarian : false);
                 
                 if ($this->logger) {
@@ -163,30 +164,119 @@ class RecipeController
         }
         
         $this->repository->addRating($id, $rating);
-        $recipe = $this->repository->findById($id); // Get updated recipe with the new rating
+        $recipe = $this->repository->findById($id); 
         
         return new Response($recipe->toArray());
     }
 
     public function search(Request $request)
     {
-        $query = $request->getParam('q', '');
-        $vegetarian = filter_var($request->getParam('vegetarian', false), FILTER_VALIDATE_BOOLEAN);
-        $difficulty = $request->getParam('difficulty');
-        
-        if ($difficulty !== null) {
-            $difficulty = (int) $difficulty;
-            if ($difficulty < 1 || $difficulty > 3) {
-                return new Response(['error' => 'Difficulty must be between 1 and 3'], 400);
+        try {
+            // Log the raw request for debugging
+            error_log("Search request received: " . $_SERVER['REQUEST_URI']);
+            
+            // Get raw params for debugging
+            $rawParams = $request->getParams();
+            
+            // Log raw parameters if logger available
+            if ($this->logger) {
+                $this->logger->info('Raw search parameters', $rawParams);
+            } else {
+                error_log("Search params: " . json_encode($rawParams));
             }
+            
+            // Get and sanitize search parameters
+            $query = $request->getParam('q', '');
+            if (is_string($query)) {
+                $query = trim($query);
+            } else {
+                $query = '';
+            }
+            
+            // Handle vegetarian param - convert string to boolean properly
+            $vegetarianParam = $request->getParam('vegetarian');
+            $vegetarianOnly = false;
+            if ($vegetarianParam !== null) {
+                // Convert various forms of true/false
+                if (is_string($vegetarianParam)) {
+                    $vegetarianParam = trim($vegetarianParam);
+                }
+                if ($vegetarianParam === 'true' || $vegetarianParam === '1' || $vegetarianParam === true || $vegetarianParam === 1) {
+                    $vegetarianOnly = true;
+                }
+            }
+            
+            // Handle difficulty param - ensure it's numeric
+            $difficultyParam = $request->getParam('difficulty');
+            $difficulty = null;
+            if ($difficultyParam !== null) {
+                if (is_string($difficultyParam)) {
+                    $difficultyParam = trim($difficultyParam);
+                }
+                if ($difficultyParam !== '' && is_numeric($difficultyParam)) {
+                    $difficulty = (int)$difficultyParam;
+                    
+                    // Validate difficulty range
+                    if ($difficulty < 1 || $difficulty > 3) {
+                        return new Response(['error' => 'Difficulty must be between 1 and 3'], 400);
+                    }
+                }
+            }
+            
+            // Log processed search parameters
+            if ($this->logger) {
+                $this->logger->info('Processed search parameters', [
+                    'query' => $query,
+                    'vegetarian' => $vegetarianOnly,
+                    'difficulty' => $difficulty
+                ]);
+            } else {
+                error_log("Processed search params: query=" . $query . 
+                          ", vegetarian=" . ($vegetarianOnly ? 'true' : 'false') . 
+                          ", difficulty=" . ($difficulty ?? 'null'));
+            }
+            
+            // Execute search with error handling
+            try {
+                $recipes = $this->repository->search($query, $vegetarianOnly, $difficulty);
+                
+                // Log successful results
+                if ($this->logger) {
+                    $this->logger->info('Search results', ['count' => count($recipes)]);
+                } else {
+                    error_log("Search returned " . count($recipes) . " results");
+                }
+                
+                return new Response([
+                    'data' => array_map(function(Recipe $recipe) {
+                        return $recipe->toArray();
+                    }, $recipes)
+                ]);
+            } catch (\Exception $e) {
+                if ($this->logger) {
+                    $this->logger->error('Search repository error', [
+                        'message' => $e->getMessage(),
+                        'trace' => $e->getTraceAsString()
+                    ]);
+                } else {
+                    error_log("Search repository error: " . $e->getMessage() . "\n" . $e->getTraceAsString());
+                }
+                throw $e;
+            }
+        } catch (\Exception $e) {
+            // Log the complete error
+            if ($this->logger) {
+                $this->logger->error('Recipe search failed', [
+                    'error' => $e->getMessage(),
+                    'trace' => $e->getTraceAsString(),
+                    'request_uri' => $_SERVER['REQUEST_URI'] ?? 'unknown'
+                ]);
+            } else {
+                error_log("Recipe search failed: " . $e->getMessage() . "\n" . $e->getTraceAsString());
+            }
+            
+            // Return a user-friendly error message
+            return new Response(['error' => 'An error occurred while searching recipes: ' . $e->getMessage()], 500);
         }
-        
-        $recipes = $this->repository->search($query, $vegetarian, $difficulty);
-        
-        return new Response([
-            'data' => array_map(function(Recipe $recipe) {
-                return $recipe->toArray();
-            }, $recipes)
-        ]);
     }
 }

@@ -46,9 +46,33 @@ class Response
             if ($this->data === null) {
                 echo json_encode([]);
             } else {
-                echo json_encode($this->data, JSON_PRETTY_PRINT);
+                try {
+                    $json = json_encode($this->data, JSON_PRETTY_PRINT);
+                    if ($json === false) {
+                        $error = json_last_error_msg();
+                        error_log("JSON encode error: " . $error);
+                        echo json_encode(['error' => 'Failed to encode response data: ' . $error]);
+                    } else {
+                        echo $json;
+                    }
+                } catch (\Exception $e) {
+                    error_log("Exception encoding JSON: " . $e->getMessage() . "\n" . $e->getTraceAsString());
+                    echo json_encode(['error' => 'Internal server error']);
+                }
             }
         }
         exit;
+    }
+
+    /**
+     * Set a header value
+     *
+     * @param string $name Header name
+     * @param string $value Header value
+     * @return void
+     */
+    public function setHeader(string $name, $value): void
+    {
+        $this->headers[$name] = $value;
     }
 }

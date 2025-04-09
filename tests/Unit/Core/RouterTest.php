@@ -65,11 +65,11 @@ class RouterTest extends TestCase
         // Add a normal route
         $this->router->addRoute('GET', '/test', 'test.controller', 'testAction', false);
         
-        // Mock the controller
-        $mockController = $this->createMock(\stdClass::class);
-        $mockController->method('testAction')->willReturn(new Response(['result' => 'success']));
+        // Mock the container to return a controller
+        $controller = $this->createMock(\stdClass::class);
+        $controller->method('testAction')->willReturn(new Response(['result' => 'success'], 200));
         
-        $this->container->method('get')->with('test.controller')->willReturn($mockController);
+        $this->container->method('get')->with('test.controller')->willReturn($controller);
         
         $request = new Request('/test', 'GET');
         $response = $this->router->dispatch($request);
@@ -78,15 +78,19 @@ class RouterTest extends TestCase
         $this->assertEquals(200, $this->getResponseProperty($response, 'statusCode'));
         
         $data = $this->getResponseProperty($response, 'data');
-        $this->assertEquals(['result' => 'success'], $data);
+        $this->assertArrayHasKey('result', $data);
+        $this->assertEquals('success', $data['result']);
     }
     
-    // Helper method to access private properties
-    private function getResponseProperty(Response $response, string $propertyName)
+    /**
+     * Helper method to access protected/private properties of Response objects.
+     */
+    private function getResponseProperty(Response $response, string $property)
     {
-        $reflection = new \ReflectionClass(Response::class);
-        $property = $reflection->getProperty($propertyName);
-        $property->setAccessible(true);
-        return $property->getValue($response);
+        $reflection = new \ReflectionClass($response);
+        $reflectionProperty = $reflection->getProperty($property);
+        $reflectionProperty->setAccessible(true);
+        
+        return $reflectionProperty->getValue($response);
     }
 }

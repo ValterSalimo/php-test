@@ -174,6 +174,9 @@ $container->set('router', function ($container) {
         $container->get('auth.middleware')
     );
     
+  
+    $router->addRoute('GET', '/', 'ui.controller', 'index', false);
+    
     // Recipe routes
     $router->addRoute('GET', '/recipes', 'recipe.controller', 'listAll', false);
     $router->addRoute('POST', '/recipes', 'recipe.controller', 'create', true);

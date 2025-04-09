@@ -9,9 +9,12 @@ class UIController
 {
     public function index(Request $request)
     {
-        // Serve the UI index.html file
-        $content = file_get_contents(__DIR__ . '/../../web/ui/index.html');
-        return new Response($content, 200, ['Content-Type' => 'text/html']);
+        // Redirect to recipes while preserving port
+        $host = $request->getHostWithPort();
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+        $redirectUrl = $protocol . '://' . $host . '/recipes';
+        
+        return new Response('', 302, ['Location' => $redirectUrl]);
     }
     
     public function serveFile(Request $request)

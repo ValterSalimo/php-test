@@ -18,6 +18,19 @@ The Recipe API allows you to manage recipes, search for recipes, and rate them. 
 4. Access the API at http://localhost:8080
 5. Use Swagger UI for interactive testing: http://localhost:8080/swagger
 
+## Recent Improvements
+
+The following improvements have been made to the API:
+
+1. **Fixed Port Preservation**: URLs now correctly maintain port numbers in redirects (e.g., localhost:8080 will redirect to localhost:8080/swagger instead of losing the port)
+2. **Enhanced Error Handling**: Better error logging and user-friendly error responses
+3. **Improved Router**: Better handling of route parameters and path matching
+4. **API Documentation**: Expanded Swagger documentation for all endpoints
+5. **Rate Limiting**: Added protection against API abuse
+6. **Search Functionality**: Fixed issues with search parameters handling
+7. **Database Error Context**: Improved error logging for database operations
+8. **URL Parameter Handling**: Better handling of URL parameters with trailing ampersands and malformed query strings
+
 ## Test User Credentials
 
 A test user is automatically created when initializing the database:
@@ -109,9 +122,23 @@ curl -X POST http://localhost:8080/recipes/1/rating \
 
 ### Search for Recipes
 
+The search functionality has been improved to better handle various parameters. You can search using any combination of:
+
 ```bash
+# Search by name only
+curl -X GET "http://localhost:8080/recipes/search?q=spaghetti"
+
+# Search by vegetarian status only
+curl -X GET "http://localhost:8080/recipes/search?vegetarian=true"
+
+# Search by difficulty only
+curl -X GET "http://localhost:8080/recipes/search?difficulty=2"
+
+# Combine multiple search criteria
 curl -X GET "http://localhost:8080/recipes/search?q=spaghetti&vegetarian=false&difficulty=2"
 ```
+
+Note that the search is now more robust and can handle empty parameters, trailing ampersands, and various parameter formats.
 
 ## API Reference
 
@@ -166,116 +193,6 @@ docker-compose up -d
 docker-compose exec php php /server/http/init-db.php
 ```
 
-## Git Version Control
-
-### Basic Git Workflow
-
-1. Check status of your changes:
-   ```bash
-   git status
-   ```
-
-2. Stage changes for commit:
-   ```bash
-   # Stage specific files
-   git add path/to/file1 path/to/file2
-
-   # Stage all changes
-   git add .
-   
-   # Note: Running just 'git add' without specifying files or using '.'
-   # will result in an error: "Nothing specified, nothing added."
-   ```
-
-3. Commit your changes:
-   ```bash
-   git commit -m "Brief description of changes"
-   ```
-
-4. Push changes to remote repository:
-   ```bash
-   git push origin main
-   ```
-
-### Common Git Errors and Solutions
-
-1. **"Nothing specified, nothing added"**
-   - Error: `git add` was run without specifying any files
-   - Solution: Use `git add .` to add all changed files, or specify file paths
-
-2. **"Your branch is ahead of 'origin/main' by X commits"**
-   - Situation: You have local commits that haven't been pushed
-   - Solution: Run `git push origin main` to push your changes
-
-3. **"Failed to push some refs"**
-   - Situation: Remote repository has changes you don't have locally
-   - Solution: Run `git pull` first, resolve any conflicts, then push
-
-4. **"Changes not staged for commit"**
-   - Situation: You have modified files but haven't used `git add` yet
-   - Solution: Run `git add .` or `git add <filename>` before committing
-
-### Working with Branches
-
-1. Create and switch to a new branch:
-   ```bash
-   git checkout -b feature/new-feature
-   ```
-
-2. Switch between branches:
-   ```bash
-   git checkout main
-   ```
-
-3. Merge changes from another branch:
-   ```bash
-   git checkout main
-   git merge feature/new-feature
-   ```
-
-### Managing Conflicts
-
-If you encounter merge conflicts:
-
-1. Identify conflicting files:
-   ```bash
-   git status
-   ```
-
-2. Open conflicted files and resolve conflicts manually (look for `<<<<<<<`, `=======`, and `>>>>>>>` markers)
-
-3. Stage resolved files:
-   ```bash
-   git add path/to/resolved/file
-   ```
-
-4. Complete the merge:
-   ```bash
-   git commit
-   ```
-
-### Useful Git Commands
-
-- View commit history:
-  ```bash
-  git log
-  git log --oneline --graph
-  ```
-
-- Discard local changes:
-  ```bash
-  # For specific file
-  git checkout -- path/to/file
-
-  # For all unstaged changes
-  git checkout -- .
-  ```
-
-- Update local repository:
-  ```bash
-  git pull
-  ```
-
 ## Testing the Application
 
 This project includes testing functionality built with PHPUnit. Here's how to work with tests:
@@ -299,7 +216,7 @@ To run the tests:
 1. Ensure Docker containers are running
 2. Execute the test script:
    ```bash
-   # Make the script executable first (only needed once)
+ 
    chmod +x run-tests.sh
    
    # Run the tests
@@ -321,29 +238,10 @@ docker-compose exec php vendor/bin/phpunit
 
 The project includes Git setup functionality:
 
-### Key Git Files
-
-- `git-setup.sh`: Shell script that:
-  - Initializes a fresh Git repository
-  - Creates a standard `.gitignore` file
-  - Makes an initial commit
-  - Provides instructions for connecting to GitHub
-
-### Setting Up Git
-
-To initialize Git for this project:
-
-1. Make the script executable:
-   ```bash
-   chmod +x git-setup.sh
-   ```
-
-2. Run the setup script:
-   ```bash
-   ./git-setup.sh
-   ```
-
-3. Follow the instructions displayed to connect to GitHub
+1. A pre-configured `.gitignore` file is included with common exclusions
+2. Local development configuration files are excluded from version control
+3. Composer dependencies are excluded to minimize repository size
+4. Docker-specific files and temporary data are properly excluded
 
 ## Using Swagger UI
 
@@ -354,20 +252,9 @@ For a more interactive experience:
 3. The token will be automatically stored and used for subsequent protected endpoints
 4. Try out different endpoints using the Swagger UI interface
 
+**Note:** When accessing the root URL http://localhost:8080, you'll be automatically redirected to the Swagger UI documentation.
+
 ## Troubleshooting
-
-### Docker Connection Issues
-
-If you see errors like `open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified`, this indicates Docker Desktop is not running. Follow these steps:
-
-1. Check if Docker Desktop is installed on your system
-2. Start Docker Desktop from the Start menu or system tray
-3. Wait for Docker Desktop to fully initialize (look for the green "Docker is running" status)
-4. Verify Docker is working with: `docker --version` and `docker-compose --version`
-5. If Docker Desktop won't start, try:
-   - Right-click on Docker Desktop and "Run as administrator"
-   - Restart your computer
-   - Reinstall Docker Desktop
 
 ### General Troubleshooting
 
@@ -375,3 +262,4 @@ If you see errors like `open //./pipe/dockerDesktopLinuxEngine: The system canno
 2. View the logs: `docker-compose logs`
 3. Reset the database: `docker-compose exec php php /server/http/init-db.php`
 4. Check database contents: `docker-compose exec postgres psql -U postgres -d hellofresh -c "SELECT * FROM recipes"`
+
